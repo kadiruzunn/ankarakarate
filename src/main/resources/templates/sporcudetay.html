@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="_layout::layout(~{::section})"> <!--layout(content)-->
+
+<head>
+	<meta charset="UTF-8">
+	<title>Sporcu Detay</title>
+</head>
+
+<body>
+	<section>
+		<hr>
+		<div>
+			<label>Sporcu Adı:</label><label th:text="${sporcu.name}"></label>
+		</div>
+		<hr>
+		<div>
+			<label>Doğum Tarihi:</label><label th:text="${sporcu.birthDate}"></label>
+		</div>
+		<hr>
+		<div>
+			<label>Kuşak:</label><label th:text="${sporcu.belt}"></label>
+		</div>
+		<hr>
+		<div>
+			<label>Kilo:</label><label th:text="${sporcu.weight}"></label>
+		</div>
+	</section>
+
+</body>
+
+</html>

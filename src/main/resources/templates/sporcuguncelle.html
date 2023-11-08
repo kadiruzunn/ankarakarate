@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="_layout::layout(~{::section})"> <!--layout(content)-->
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<section>
+		<div class="card m-5">
+			<h5 class="card-header">Sporcu Güncelle</h5>
+			<div class="card-body">
+				<form th:action="@{/sporcuguncelle/{id} (id=${sporcu.id})}" th:object="${sporcu}" method="POST" class="form"
+					enctype="multipart/form-data">
+				
+
+					<div class="form-group mb-2">
+						<label th:text="#{label.sporcu.image}"></label>
+						<img th:src="@{'/img/' + ${sporcu.image}}" style="width:100px;height: 100px;"/>
+						<input type="file" id="img" name="img" accept="image/png, image/jpeg, image/webp"
+							class="form-control" onchange="document.getElementById('image').value=document.getElementById('img').value" />
+						<input type="hidden" id="image" name="image" th:field="*{image}"/>
+					</div>
+
+
+					<div class="form-group mb-2">
+						<label>Adı</label>
+						<input type="text" id="name" name="name" th:field="*{name}" class="form-control" />
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+					</div>
+					
+					<div class="form-group mb-2">
+						<label>Kuşağı</label>
+						<input type="text" id="belt" name="belt" th:field="*{belt}" class="form-control" />
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('belt')}" th:errors="*{belt}"></div>
+					</div>
+					
+					<div class="form-group mb-2">
+						<label>Kulübü</label>
+						<input type="text" id="club" name="club" th:field="*{club}" class="form-control" />
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('club')}" th:errors="*{club}"></div>
+					</div>
+					
+					<div class="form-group mb-2">
+						<label>Cinsiyeti</label>
+						<input type="text" id="gender" name="gender" th:field="*{gender}" class="form-control" />
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></div>
+					</div>
+					
+					<div class="form-group mb-2">
+						<label>Antrenörü</label>
+						<input type="text" id="trainer" name="trainer" th:field="*{trainer}" class="form-control" />
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('trainer')}" th:errors="*{trainer}"></div>
+					</div>
+
+					<div class="form-group mb-2">
+						<label>Kilosu</label>
+						<input type="number" id="weight" name="weight" th:field="*{weight}"
+							class="form-control" />
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('weight')}"
+							th:errors="*{weight}"></div>
+					</div>
+
+					<div class="form-group mb-2">
+						<label>Kilo Türü</label>
+						<select class="form-control" name="weightType" th:field="*{weightType}">
+							<option th:each="tip:${T(com.ankaraKarate.entity.WeightType).values()}"
+								th:value="${tip}" th:text="${tip}">
+							</option>
+						</select>
+					</div>
+
+					<div class="form-group mb-2">
+						<label>Doğum Tarihi</label>
+						<input type="date" id="birthDate" name="birthDate" th:field="*{birthDate}"
+							class="form-control" />
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('birthDate')}"
+							th:errors="*{birthDate}"></div>
+					</div>
+					
+					<div class="form-group mb-2">
+						<label>Kritik Kilo</label>
+						<input type="number" id="criticalWeight" name="criticalWeight" th:field="*{criticalWeight}"
+							class="form-control" />
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('criticalWeight')}"
+							th:errors="*{criticalWeight}"></div>
+					</div>
+
+					<div class="box-footer">
+						<input type="submit" value="Kaydet" class="btn btn-primary mt-2">
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		
+	</section>
+</body>
+
+</html>

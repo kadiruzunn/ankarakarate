@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="_layout::layout(~{::section})">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body style="background-color: lightgray;"> 
+
+    <section>
+        <div class="center">
+            <h1 style="font-size: 100px; text-align: center; margin-top: 100px;">Ankara Karate</h1>
+            <p style="font-size: 35px; text-align: center"> Ankara Karate Provincial Representation Management Platform</p>
+        </div>
+
+    <div class="box-footer" style="text-align: center;">
+    <form>
+        <input type="submit" formaction="/registration" value="New Acoount" class="btn btn-danger mt-3" style="font-size: 50px; padding: 15px 30px; color: white; border: none; cursor: pointer;">
+        <input type="submit" formaction="/sporcular" value="Athletes" class="btn btn-success mt-3" style="font-size: 50px; padding: 15px 30px; color: white; border: none; cursor: pointer;">
+        <input type="submit" formaction="/yenisporcu" value="New Athlete" class="btn btn-info mt-3" style="font-size: 50px; padding: 15px 30px; color: white; border: none; cursor: pointer;">
+    </form>
+</div>
+
+
+
+
+
+
+        </div>
+    </section>
+</body>
+
+</html>
